@@ -252,11 +252,7 @@
     .features-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
+      gap: 16px;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.7s forwards;
     }
@@ -264,19 +260,25 @@
     .feature {
       background: var(--card);
       padding: 36px 28px;
-      transition: background 0.2s ease;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .feature:hover {
       background: #1f1b16;
+      border-color: rgba(184, 146, 62, 0.4);
     }
 
-    .feature-icon {
-      font-size: 22px;
-      margin-bottom: 16px;
-      display: block;
+    .feature-numeral {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 28px;
+      font-weight: 700;
       color: var(--gold);
-      font-style: normal;
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
     }
 
     .feature-title {
@@ -448,7 +450,7 @@
 
   <header>
     <div class="logo-seal">
-      <img src="Logo_marketing.png" alt="Klio seal">
+      <img src="Logo marketing.png" alt="Klio seal">
     </div>
 
     <div class="logo-wordmark">Klio</div>
@@ -464,7 +466,7 @@
       Stop losing<br>what you <em>learn.</em>
     </h1>
     <p class="hero-sub">
-      Klio saves everything you find online — YouTube videos, articles, newsletters — and makes it all findable forever through semantic search.
+      Klio saves everything you find online — YouTube videos, articles, newsletters — and makes it all findable forever through semantic&nbsp;search.
     </p>
 
     <div class="waitlist">
@@ -488,19 +490,19 @@
   <section class="features">
     <div class="features-grid">
       <div class="feature">
-        <span class="feature-icon">⬡</span>
+        <span class="feature-numeral">I</span>
         <div class="feature-title">Save in one tap</div>
         <p class="feature-text">YouTube, articles, Substack, any URL. Klio extracts what matters and stores it in your library.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">◈</span>
+        <span class="feature-numeral">II</span>
         <div class="feature-title">AI summaries & tags</div>
-        <p class="feature-text">Every piece of content is automatically summarized and tagged. You never have to organize manually.</p>
+        <p class="feature-text">Every piece of content is summarized and tagged automatically. No manual organizing, ever.</p>
       </div>
       <div class="feature">
-        <span class="feature-icon">◎</span>
+        <span class="feature-numeral">III</span>
         <div class="feature-title">Find anything, forever</div>
-        <p class="feature-text">Semantic search understands meaning, not just keywords. Find that video you watched six months ago in seconds.</p>
+        <p class="feature-text">Semantic search understands meaning, not just keywords. Find that video from six months ago in seconds.</p>
       </div>
     </div>
   </section>
@@ -534,7 +536,7 @@
   <section class="cta-bottom">
     <br><br>
     <h2>Your personal library<br>awaits.</h2>
-    <p>Join the waitlist and be the first to know when Klio opens.</p>
+    <p>Join the waitlist and be the first to know when&nbsp;Klio&nbsp;opens.</p>
     <form id="waitlist-form-2" action="https://formspree.io/f/xeedoapy" method="POST">
       <div class="form-row" style="max-width: 400px; margin: 0 auto;">
         <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
