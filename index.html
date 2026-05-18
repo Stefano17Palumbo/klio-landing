@@ -17,9 +17,12 @@
       --gold: #b8923e;
       --gold-light: #c9a84c;
       --wax: #8B2020;
+      --wax-light: #a52828;
       --text: #f5f0e8;
       --text-secondary: #a89880;
       --border: rgba(184, 146, 62, 0.2);
+      --border-wax: rgba(139, 32, 32, 0.3);
+      --radius: 12px;
     }
 
     html { scroll-behavior: smooth; }
@@ -55,6 +58,26 @@
       z-index: 0;
     }
 
+    /* Decorazioni laterali */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-wrapper::before,
+    .page-wrapper::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(184,146,62,0.15) 20%, rgba(184,146,62,0.15) 80%, transparent);
+      pointer-events: none;
+    }
+
+    .page-wrapper::before { left: clamp(16px, 4vw, 48px); }
+    .page-wrapper::after  { right: clamp(16px, 4vw, 48px); }
+
     .container {
       max-width: 720px;
       margin: 0 auto;
@@ -65,13 +88,13 @@
 
     /* Header */
     header {
-      padding: 48px 0 0;
+      padding: 56px 0 0;
       text-align: center;
     }
 
     .logo-seal {
-      width: 96px;
-      height: 96px;
+      width: 160px;
+      height: 160px;
       margin: 0 auto 32px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards;
@@ -106,12 +129,40 @@
       animation: fadeUp 0.8s ease 0.2s forwards;
     }
 
+    /* Linea rossa decorativa sotto titolo */
+    .logo-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.25s forwards;
+    }
+
+    .logo-rule::before,
+    .logo-rule::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--wax);
+      opacity: 0.7;
+    }
+
+    .logo-rule-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--wax);
+      opacity: 0.8;
+    }
+
     /* Divider */
     .divider {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin: 48px 0;
+      margin: 40px 0;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.3s forwards;
     }
@@ -173,7 +224,7 @@
       max-width: 480px;
       margin: 0 auto;
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: var(--radius);
       overflow: hidden;
       background: var(--card);
       transition: border-color 0.3s ease;
@@ -189,8 +240,9 @@
       border: none;
       outline: none;
       padding: 16px 20px;
-      font-family: 'EB Garamond', serif;
-      font-size: 17px;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-style: italic;
       color: var(--text);
       min-width: 0;
     }
@@ -198,17 +250,18 @@
     .form-row input::placeholder {
       color: var(--text-secondary);
       opacity: 0.6;
+      font-style: italic;
     }
 
     .form-row button {
-      background: var(--gold);
+      background: var(--wax);
       border: none;
       padding: 16px 28px;
-      font-family: 'EB Garamond', serif;
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--bg);
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text);
       cursor: pointer;
       white-space: nowrap;
       transition: background 0.2s ease;
@@ -216,7 +269,7 @@
     }
 
     .form-row button:hover {
-      background: var(--gold-light);
+      background: var(--wax-light);
     }
 
     .form-note {
@@ -232,7 +285,7 @@
       text-align: center;
       padding: 20px;
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: var(--radius);
       background: var(--card);
       max-width: 480px;
       margin: 0 auto;
@@ -246,7 +299,7 @@
 
     /* Features */
     .features {
-      padding: 80px 0;
+      padding: 60px 0;
     }
 
     .features-grid {
@@ -261,13 +314,13 @@
       background: var(--card);
       padding: 36px 28px;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .feature:hover {
       background: #1f1b16;
-      border-color: rgba(184, 146, 62, 0.4);
+      border-color: rgba(139, 32, 32, 0.4);
     }
 
     .feature-numeral {
@@ -275,7 +328,7 @@
       font-style: italic;
       font-size: 28px;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--wax);
       display: block;
       margin-bottom: 16px;
       line-height: 1;
@@ -297,7 +350,7 @@
 
     /* Quote */
     .quote-section {
-      padding: 0 0 80px;
+      padding: 0 0 60px;
       text-align: center;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.8s forwards;
@@ -322,7 +375,7 @@
 
     /* Works with */
     .sources {
-      padding: 0 0 80px;
+      padding: 0 0 60px;
       text-align: center;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.9s forwards;
@@ -357,9 +410,9 @@
     .source-item:hover { color: var(--text); }
 
     .source-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--gold);
+      width: 5px;
+      height: 5px;
+      background: var(--wax);
       border-radius: 50%;
       flex-shrink: 0;
     }
@@ -437,15 +490,17 @@
     /* Mobile */
     @media (max-width: 600px) {
       .features-grid { grid-template-columns: 1fr; }
-      .form-row { flex-direction: column; border-radius: 4px; }
+      .form-row { flex-direction: column; border-radius: var(--radius); }
       .form-row button { padding: 14px; border-top: 1px solid var(--border); }
       .footer-inner { flex-direction: column; text-align: center; }
       .sources-list { gap: 24px; }
+      .page-wrapper::before, .page-wrapper::after { display: none; }
     }
   </style>
 </head>
 <body>
 
+<div class="page-wrapper">
 <div class="container">
 
   <header>
@@ -455,6 +510,7 @@
 
     <div class="logo-wordmark">Klio</div>
     <div class="logo-sub">ΚΛΕΙΩ · ΜΟΥΣΑ · ΙΣΤΟΡΙΑΣ</div>
+    <div class="logo-rule"><span class="logo-rule-dot"></span></div>
   </header>
 
   <div class="divider">
@@ -545,6 +601,7 @@
     </form>
   </section>
 
+</div>
 </div>
 
 <footer>
