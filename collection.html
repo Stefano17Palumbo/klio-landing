@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background-color: #0f0d0a;
       color: #f5f0e8;
@@ -19,8 +20,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 32px 24px;
+      padding: 32px 24px 140px;
     }
+
     .container {
       width: 100%;
       max-width: 400px;
@@ -30,13 +32,16 @@
       text-align: center;
       gap: 32px;
     }
+
     .logo-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 12px;
     }
+
     .logo { width: 64px; height: 64px; object-fit: contain; }
+
     .logo-name {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -44,7 +49,9 @@
       color: #f5f0e8;
       letter-spacing: 0.5px;
     }
+
     .divider { color: #b8923e; font-size: 12px; letter-spacing: 4px; }
+
     .card {
       width: 100%;
       background: #1a1612;
@@ -56,6 +63,7 @@
       align-items: center;
       gap: 16px;
     }
+
     .card-label {
       font-size: 11px;
       font-weight: 500;
@@ -63,6 +71,7 @@
       text-transform: uppercase;
       color: #b8923e;
     }
+
     .card-title {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
@@ -70,7 +79,9 @@
       color: #f5f0e8;
       line-height: 1.3;
     }
+
     .card-sub { font-size: 14px; color: #a89880; line-height: 1.6; }
+
     .btn-primary {
       width: 100%;
       background: #b8923e;
@@ -85,9 +96,12 @@
       cursor: pointer;
       text-decoration: none;
       display: block;
+      opacity: 1;
       transition: opacity 0.2s;
     }
+
     .btn-primary:hover { opacity: 0.88; }
+
     .btn-secondary {
       width: 100%;
       background: transparent;
@@ -101,31 +115,45 @@
       cursor: pointer;
       text-decoration: none;
       display: block;
+      opacity: 1;
       transition: border-color 0.2s, color 0.2s;
     }
+
     .btn-secondary:hover { border-color: #b8923e; color: #f5f0e8; }
+
     .footer {
       font-size: 12px;
-      color: #5a5040;
+      color: #a89880;
       text-align: center;
       line-height: 2;
+      border-top: 1px solid rgba(184,146,62,0.2);
+      padding: 24px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
-    .footer a {
-      color: #5a5040;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer a:hover { color: #a89880; }
+
     .footer-links {
       display: flex;
       justify-content: center;
       gap: 16px;
       margin-top: 8px;
     }
+
+    .footer-links a {
+      font-size: 12px;
+      color: #a89880;
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    .footer-links a:hover { color: #f5f0e8; }
   </style>
 </head>
 <body>
   <div class="container">
+
     <div class="logo-section">
       <img src="https://klio.space/Logo%20marketing.png" alt="Klio" class="logo" />
       <span class="logo-name">Klio</span>
@@ -143,16 +171,17 @@
       <a id="store-btn" href="#" class="btn-secondary">Scarica Klio</a>
     </div>
 
-    <p class="footer">
-      Klio · La tua biblioteca personale intelligente<br />
-      <a href="https://klio.space">klio.space</a> · &copy; 2026 Klio
-      <div class="footer-links">
-        <a href="https://klio.space/privacy.html">Privacy Policy</a>
-        <a href="https://klio.space">Termini di servizio</a>
-        <a href="mailto:hello@klio.space">Contatti</a>
-      </div>
-    </p>
   </div>
+
+  <footer class="footer">
+    Klio · La tua biblioteca personale intelligente<br />
+    klio.space · &copy; 2026 Klio
+    <div class="footer-links">
+      <a href="https://klio.space/privacy.html">Privacy Policy</a>
+      <a href="https://klio.space">Termini di servizio</a>
+      <a href="mailto:hello@klio.space">Contatti</a>
+    </div>
+  </footer>
 
   <script>
     var params = new URLSearchParams(window.location.search);
@@ -160,18 +189,12 @@
     var openBtn = document.getElementById('open-btn');
     var storeBtn = document.getElementById('store-btn');
 
-    if (slug) {
-      openBtn.href = 'klio://collection/' + slug;
-    }
+    if (slug) openBtn.href = 'klio://collection/' + slug;
 
-    var ua = navigator.userAgent || '';
-    var isAndroid = /Android/i.test(ua);
-
-    if (isAndroid) {
-      storeBtn.href = 'https://play.google.com/store/apps/details?id=space.klio.app';
-    } else {
-      storeBtn.href = 'https://apps.apple.com/it/app/id6780842602';
-    }
+    var isAndroid = /Android/i.test(navigator.userAgent || '');
+    storeBtn.href = isAndroid
+      ? 'https://play.google.com/store/apps/details?id=space.klio.app'
+      : 'https://apps.apple.com/it/app/id6780842602';
   </script>
 </body>
 </html>
