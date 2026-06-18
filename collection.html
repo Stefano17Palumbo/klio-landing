@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klio — Raccolta condivisa</title>
+  <meta name="description" content="Qualcuno ha condiviso una raccolta con te su Klio, la biblioteca personale intelligente." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0f0d0a;
+      color: #f5f0e8;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+    }
+
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #f5f0e8;
+      letter-spacing: 0.5px;
+    }
+
+    .divider {
+      color: #b8923e;
+      font-size: 12px;
+      letter-spacing: 4px;
+    }
+
+    .card {
+      width: 100%;
+      background: #1a1612;
+      border: 1px solid #2a2218;
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #b8923e;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #f5f0e8;
+      line-height: 1.3;
+    }
+
+    .card-sub {
+      font-size: 14px;
+      color: #a89880;
+      line-height: 1.6;
+    }
+
+    .btn-primary {
+      width: 100%;
+      background: #b8923e;
+      color: #1a1612;
+      border: none;
+      border-radius: 10px;
+      padding: 17px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      width: 100%;
+      background: transparent;
+      color: #a89880;
+      border: 1px solid #2a2218;
+      border-radius: 10px;
+      padding: 15px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #b8923e;
+      color: #f5f0e8;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #5a5040;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #5a5040;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="https://klio.space/Logo%20marketing.png" alt="Klio" class="logo" />
+      <span class="logo-name">Klio</span>
+      <span class="divider">· · ·</span>
+    </div>
+
+    <div class="card">
+      <span class="card-label">Raccolta condivisa</span>
+      <h1 class="card-title">Qualcuno ha condiviso una raccolta con te</h1>
+      <p class="card-sub">Apri Klio per esplorare i contenuti di questa raccolta.</p>
+    </div>
+
+    <div style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
+      <a id="open-btn" href="#" class="btn-primary">✦ &nbsp;Apri in Klio</a>
+      <a id="download-btn" href="https://apps.apple.com/app/id6780842602" class="btn-secondary">Scarica Klio — App Store</a>
+    </div>
+
+    <p class="footer">
+      Klio — La tua biblioteca personale intelligente<br />
+      <a href="https://klio.space">klio.space</a>
+    </p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug') || '';
+    if (slug) {
+      document.getElementById('open-btn').href = 'klio://collection/' + slug;
+    }
+  </script>
+</body>
+</html>
