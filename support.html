@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Klio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0c0a;
+      --surface: #1a1612;
+      --border: #2a2218;
+      --gold: #b8923e;
+      --gold-light: #d4a85a;
+      --text: #e8e0d0;
+      --muted: #7a6f60;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      padding: 32px 24px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .logo-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    main {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+      width: 100%;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 56px;
+      max-width: 520px;
+    }
+
+    .faq {
+      margin-bottom: 64px;
+    }
+
+    .faq-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .faq-a a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .form-section-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input, select, textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      padding: 12px 16px;
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a6f60' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    select option { background: var(--surface); }
+
+    textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+    .submit-btn {
+      background: var(--gold);
+      border: none;
+      border-radius: 6px;
+      color: var(--bg);
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      transition: background 0.2s, opacity 0.2s;
+      align-self: flex-start;
+    }
+
+    .submit-btn:hover { background: var(--gold-light); }
+    .submit-btn:active { opacity: 0.85; }
+
+    .success-msg {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 20px 24px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 540px) {
+      .field-row { grid-template-columns: 1fr; }
+      main { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Logo marketing.png" class="logo-mark" alt="Klio" />
+  <span class="logo-name">Klio</span>
+</header>
+
+<main>
+  <p class="eyebrow">Support</p>
+  <h1>How can we help?</h1>
+  <p class="intro">We read every message and reply within 24 hours. If you have a question, a bug report, or just want to share feedback, we're here.</p>
+
+  <p class="form-section-title">Send us a message</p>
+
+  <form id="support-form" action="https://formspree.io/f/xeedoapy" method="POST">
+    <div class="field-row">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+      </div>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="topic">Topic</label>
+      <select id="topic" name="topic" required>
+        <option value="" disabled selected>Select a topic</option>
+        <option value="bug">Bug report</option>
+        <option value="account">Account or subscription</option>
+        <option value="feature">Feature request</option>
+        <option value="data">Data or privacy</option>
+        <option value="other">Something else</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Describe your issue or question in as much detail as you like." required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send message</button>
+  </form>
+
+  <div class="success-msg" id="success-msg">
+    Your message has been sent. We'll get back to you at the email address you provided within 24 hours.
+  </div>
+
+  <div class="faq" style="margin-top: 64px;">
+    <p class="faq-title">Common questions</p>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I save a link to Klio?</p>
+      <p class="faq-a">Open Klio, tap the + button at the bottom, paste any URL, and tap Save. Klio will automatically generate a summary and tags for you.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How does semantic search work?</p>
+      <p class="faq-a">Type any idea, concept, or half-remembered sentence in the search bar. Klio searches by meaning, not just keywords, so you can find content even if you don't remember the exact words.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I generate AI collections?</p>
+      <p class="faq-a">Go to the Collections tab and tap Generate. Klio will analyze your library and create collections based on recurring themes across your saved content. This feature requires Klio Pro.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I cancel my subscription?</p>
+      <p class="faq-a">Open the Settings app on your iPhone, tap your name, then Subscriptions. Find Klio Pro and tap Cancel Subscription.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How do I delete my account?</p>
+      <p class="faq-a">Go to your Profile in Klio, scroll to the bottom, and tap Delete Account. Your data will be permanently removed within 30 days.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="https://klio.space">klio.space</a> &nbsp;&middot;&nbsp;
+  <a href="https://klio.space/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  <a href="mailto:hello@klio.space">hello@klio.space</a>
+</footer>
+
+<script>
+  const form = document.getElementById('support-form');
+  const successMsg = document.getElementById('success-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }
+    } catch {
+      alert('Something went wrong. Please email us directly at hello@klio.space.');
+    }
+  });
+</script>
+
+</body>
+</html>
