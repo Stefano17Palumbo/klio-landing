@@ -40,14 +40,18 @@
       margin-bottom: 56px;
     }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 42px;
-      font-weight: 700;
-      color: var(--text);
-      display: block;
-      margin-bottom: 8px;
+    .logo-link {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-link img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
     }
 
     .logo-sub {
@@ -150,14 +154,24 @@
       color: var(--text-secondary);
       opacity: 0.6;
     }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 <div class="container">
 
   <header>
-    <a href="/" style="text-decoration: none;">
-      <span class="logo">Klio</span>
+    <a href="/" class="logo-link">
+      <img src="Logo marketing.png" alt="Klio">
       <span class="logo-sub">ΚΛΕΙΩ · ΜΟΥΣΑ · ΙΣΤΟΡΙΑΣ</span>
     </a>
   </header>
@@ -260,7 +274,7 @@
   <ul>
     <li>Delete individual saved items at any time from within the app</li>
     <li>Delete collections at any time from within the app</li>
-    <li>Request complete account deletion by contacting us at <a href="mailto:hello@klio.space">hello@klio.space</a></li>
+    <li>Request complete account deletion from within the app or by contacting us at <a href="mailto:hello@klio.space">hello@klio.space</a></li>
   </ul>
   <p>Upon account deletion, all your personal data, saved content, and collections will be permanently removed from our systems within 30 days.</p>
 
@@ -291,7 +305,7 @@
   <div class="divider"><span>· · ·</span></div>
 
   <footer>
-    <p>© 2026 Klio · <a href="https://klio.space">klio.space</a></p>
+    <p>© 2026 Klio &nbsp;·&nbsp; <a href="/">Home</a> &nbsp;·&nbsp; <a href="/support.html">Support</a> &nbsp;·&nbsp; <a href="mailto:hello@klio.space">hello@klio.space</a></p>
   </footer>
 
 </div>

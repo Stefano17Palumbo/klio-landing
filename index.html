@@ -37,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* Grain texture overlay */
     body::before {
       content: '';
       position: fixed;
@@ -48,7 +47,6 @@
       opacity: 0.4;
     }
 
-    /* Vignette */
     body::after {
       content: '';
       position: fixed;
@@ -58,7 +56,6 @@
       z-index: 0;
     }
 
-    /* Decorazioni laterali */
     .page-wrapper {
       position: relative;
       z-index: 1;
@@ -86,7 +83,6 @@
       z-index: 1;
     }
 
-    /* Header */
     header {
       padding: 56px 0 0;
       text-align: center;
@@ -129,7 +125,6 @@
       animation: fadeUp 0.8s ease 0.2s forwards;
     }
 
-    /* Linea rossa decorativa sotto titolo */
     .logo-rule {
       display: flex;
       align-items: center;
@@ -157,7 +152,6 @@
       opacity: 0.8;
     }
 
-    /* Divider */
     .divider {
       display: flex;
       align-items: center;
@@ -181,7 +175,6 @@
       letter-spacing: 4px;
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 0 0 48px;
@@ -212,7 +205,6 @@
       animation: fadeUp 0.8s ease 0.5s forwards;
     }
 
-    /* Waitlist form */
     .waitlist {
       opacity: 0;
       animation: fadeUp 0.8s ease 0.6s forwards;
@@ -297,7 +289,6 @@
       font-size: 18px;
     }
 
-    /* Features */
     .features {
       padding: 60px 0;
     }
@@ -348,7 +339,6 @@
       line-height: 1.6;
     }
 
-    /* Quote */
     .quote-section {
       padding: 0 0 60px;
       text-align: center;
@@ -373,7 +363,6 @@
       text-transform: uppercase;
     }
 
-    /* Works with */
     .sources {
       padding: 0 0 60px;
       text-align: center;
@@ -417,7 +406,6 @@
       flex-shrink: 0;
     }
 
-    /* Second CTA */
     .cta-bottom {
       text-align: center;
       padding: 0 0 80px;
@@ -438,7 +426,6 @@
       font-size: 18px;
     }
 
-    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 0;
@@ -481,13 +468,11 @@
 
     .footer-links a:hover { opacity: 1; }
 
-    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Mobile */
     @media (max-width: 600px) {
       .features-grid { grid-template-columns: 1fr; }
       .form-row { flex-direction: column; border-radius: var(--radius); }
@@ -507,7 +492,6 @@
     <div class="logo-seal">
       <img src="Logo marketing.png" alt="Klio seal">
     </div>
-
     <div class="logo-wordmark">Klio</div>
     <div class="logo-sub">ΚΛΕΙΩ · ΜΟΥΣΑ · ΙΣΤΟΡΙΑΣ</div>
     <div class="logo-rule"><span class="logo-rule-dot"></span></div>
@@ -610,8 +594,9 @@
       <span class="footer-brand">Klio</span>
       <span class="footer-note">© 2026 Klio · klio.space</span>
       <div class="footer-links">
-        <a href="mailto:ciao@klio.space">Contact</a>
+        <a href="/support.html">Support</a>
         <a href="/privacy.html">Privacy</a>
+        <a href="mailto:hello@klio.space">Contact</a>
       </div>
     </div>
   </div>
